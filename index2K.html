@@ -1,0 +1,784 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Progressive Web Apps | Death to the Native App!</title>
+  
+  <meta name="description" content="Presentation for TampereJS about Progressive Web Apps" />
+  <meta name="date" content="2016-09-01" />
+  <meta name="author" content="Juanjo Diaz" />
+
+  <link href="https://fonts.googleapis.com/css?family=Devonshire|Electrolize" rel="stylesheet">
+  
+</head>
+<body class="impress-not-supported">
+<style type="text/css">
+  html {
+    font-family: sans-serif;
+    color: #555;
+  }
+  h1 {
+    font-size: 100px;
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+  }
+  a {
+    color: #555;
+  }
+  .step {
+    width: 972px;
+    height: 729px;
+    font-size: 27px;
+    text-align: center;
+  }
+
+  .impress-enabled .step.overlay-bd { opacity: 1 }
+  .show-if-active {
+    position: absolute;
+    opacity: 0;
+    transition: opacity 1000ms;
+  }
+
+  .show-if-active.active, .show-if-past.past {
+    opacity: 1;
+  }
+
+  .show-faded-if-past.past {
+    opacity: 0.5;
+  }
+
+  .comparison ul {
+    float: left;
+    width: 45%;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  .comparison ul:last-child {
+    margin-left: 10%;
+  }
+
+  .pwas-features {
+    text-align: left;
+    margin-left: 85px;
+  }
+  .ows {
+    position: absolute;
+  }
+  .ows p {
+    margin: 0;
+  }
+
+  .hidden {
+    visibility: hidden;
+  }
+  .stretch {
+    width: 100%;
+  }
+  .crossedout {
+    text-decoration: line-through;
+  }
+  .margintop450 {
+    margin-top: 450px;
+  }
+</style>
+
+<div id="impress" data-transition-duration="1000"> 
+  <div id="overview" class="step show-if-active" data-x="7500" data-y="0" data-z="20000" data-scale="5">
+    <style type="text/css">
+      #overview {
+        font-family: 'Electrolize';
+        border: 1px solid;
+        background: white;
+      }
+
+      #overview h1 {
+        position: relative;
+        top: 0;
+        transform: translate(0);
+        font-size: 75px;
+        margin-top: 25%;
+      }
+
+      #license {
+        position: absolute;
+        bottom: 10px;
+        left: 20px;
+      }
+
+      .title_author {
+        font-family: 'Devonshire';
+        font-size: 30px;
+        color: #666;
+        position: absolute;
+        bottom: 10px;
+        right: 20px;
+      }
+      .date {
+        display: inline-block;
+        transform: translateY(20px);
+        vertical-align: top;
+      }
+      .slash {
+        font-size: 70px;
+        display: inline-block;
+      }
+      .author {
+        display: inline-block;
+        font-size: 40px;
+      }
+    </style>
+    <h1>Progressive Web Apps</h1>
+    <h2>Death to the Native App!</h2>
+    <div id="license">
+      <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">
+        <img alt="Creative Commons Licence" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" />
+      </a>
+    </div>
+    <div class="title_author">
+      <span class="date">01.09.2016</span>
+      <span class="slash">/</span>
+      <span class="author">Juanjo Diaz</span>
+    </div>
+  </div>
+
+  <div id="htmlvsnative" class="step" data-x="0" data-y="0" data-z="0">
+    <style type="text/css">
+      #htmlvsnative {
+        width: 1600px;
+      }
+    </style>
+    <img src="img/fight.png" width="1600px">
+  </div>
+  <div id="htmlvsnative-1" class="step show-if-active overlay" data-x="0" data-y="300" data-z="600">
+    <div class="margintop450 comparison">
+      <ul>
+        <li>Online / offline</li>
+        <li>Better performance</li>
+        <li>Full capabilities</li>
+        <li>Run from homescreen</li>
+        <li><br/></li>
+        <li>Expensive and complex to develop</li>
+        <li>Works in a single platform</li>
+        <li>Requires installation/can’t be shared</li>
+        <li>Potentially painful updates</li>
+      </ul>
+      <ul>
+        <li>Only online</li>
+        <li>Worse performance</li>
+        <li>Limited capabilities</li>
+        <li>Requires a browser</li>
+        <li><br/></li>
+        <li>Cheap and easy to develop</li>
+        <li><li>Works virtually everywhere</li>
+        <li>Accessed through a URL</li>
+        <li>Transparent updates</li>
+      </ul>
+    </div>
+  </div>
+  <div id="htmlvsnative-2" class="step show-if-active overlay" data-x="0" data-y="300" data-z="600">
+    <div class="margintop450 comparison">
+      <h2>The mobile app paradox</h2>
+      <ul>
+        <li>87% user time</li>
+        <li>27 apps/month</li>
+        <li><br/></li>
+        <li><b>Native apps are more engaging</b></li>
+      </ul>
+      <ul>
+        <li>13% user time</li>
+        <li>100+ webs/month</li>
+        <li><br/></li>
+        <li><b>Websites are more accessible</b></li>
+      </ul>
+    </div>
+  </div>
+  <div id="hybrid-apps" class="step show-if-active" data-x="0" data-y="1000" data-z="0" data-rotate-x="-90">
+    <style type="text/css">
+      .images {
+        position: relative;
+      }
+
+      .images img {
+        position: absolute;
+      }
+      .ionic {
+        top: 0;
+        left: 0;
+        width: 350px;
+      }
+      .cordova {
+        top: 75px;
+        left: 375px;
+        width: 400px;
+      }
+      .electron {
+        top: 0;
+        left: 775px;
+        width: 200px;
+      }
+      .winjs {
+        top: 200px;
+        left: 0;
+        width: 250px;
+      }
+      .webos {
+        top: 400px;
+        left: 200px;
+        width: 300px;
+      }
+      .firefoxos {
+        top: 175px;
+        left: 400px;
+        width: 400px;
+      }
+      .chromeapps {
+        top: 400px;
+        left: 700px;
+        width: 200px;
+      }
+    </style>
+    <h2>The first attempt: Hybrid apps</h2>
+    <div class="images">
+      <img src="img/hybrid/ionic.png" class="ionic">
+      <img src="img/hybrid/cordova.png" class="cordova">
+      <img src="img/hybrid/electron.png" class="electron">
+      <img src="img/hybrid/winjs.png" class="winjs">
+      <img src="img/hybrid/webos.png" class="webos">
+      <img src="img/hybrid/firefoxos.png" class="firefoxos">
+      <img src="img/hybrid/chromeapps.png" class="chromeapps">
+    </div>
+  </div>
+
+  <div id="pwas" class="step" data-x="3500" data-y="0" data-z="0" data-rotate-y="180">
+    <h1>Progressive Web Apps to the rescue!</h1>
+  </div>
+  <div id="pwas-1" class="step" data-x="3500" data-y="300" data-z="-500" data-rotate-y="180">
+    <p class="margintop450">Using modern web capabilities to deliver an app-like user experience.</p>
+    <ul class="pwas-features">
+      <li>Instant load <span class="hidden">⇒ Splash screen + Shell App Arch. + Caching</span></li>
+      <li>App-like look & feel <span class="hidden">⇒ Responsive design, requestAnimationFrame, ...</span></li>
+      <li>Same capabilities as native apps <span class="hidden">⇒ Open Web Standards</span></li>
+      <li>Connectivity independent <span class="hidden">⇒ Service Worker</span></li>
+      <li>Re-engageable <span class="hidden">⇒ Service Worker + Push & Notification APIs</span></li>
+      <li>Installable <span class="hidden">⇒ Web App Manifest + Service Worker</span></li>
+      <!-- <li>Discoverable, Linkable (take that native app!)</span></li> -->
+    </ul>
+  </div>
+
+  <div id="are-webs-so-limited" class="step" data-x="7000" data-y="0" data-z="0">
+    <h1>Are websites so limited?</h1>
+  </div>
+  <div id="ows-1" class="step" data-x="7000" data-y="1000" data-z="0">
+    <h2>Open Web Standards</h2>
+    <img src="img/ows.png">
+  </div>
+  <div id="ows-2" class="step show-if-active show-faded-if-past" data-x="7000" data-y="1000" data-z="0">
+    <style type="text/css">
+      #ows-2 > .ows {
+        text-align: left;
+        top: 300px;
+      }
+    </style>
+    <div class="ows">
+      <p>Websockets</p>
+      <p>Push API</p>
+      <p>Web Notifications</p>
+    </div>
+  </div>
+  <div id="ows-3" class="step show-if-active show-faded-if-past" data-x="7000" data-y="1000" data-z="0">
+    <style type="text/css">
+      #ows-3 > .ows {
+        text-align: left;
+        top: 490px;
+      }
+    </style>
+    <div class="ows">
+      <p>Web Storage</p>
+      <p>Indexed Database API</p>
+    </div>
+  </div>
+  <div id="ows-4" class="step show-if-active show-faded-if-past" data-x="7000" data-y="1000" data-z="0">
+    <style type="text/css">
+      #ows-4 > .ows {
+        text-align: right;
+        top: 300px;
+        right: 0;
+      }
+    </style>
+    <div class="ows">
+      <p>Media Capture and Streams</p>
+      <p>Web Audio</p>
+      <p>Web Speech API</p>
+    </div>
+  </div>
+  <div id="ows-5" class="step show-if-active show-faded-if-past" data-x="7000" data-y="1000" data-z="0">
+    <style type="text/css">
+      #ows-5 > .ows {
+        text-align: right;
+        top: 490px;
+        right: 0;
+      }
+    </style>
+    <div class="ows">
+      <p>File API</p>
+      <p>Clipboard API</p>
+    </div>
+  </div>
+  <div id="ows-6" class="step" data-x="7000" data-y="1875" data-z="0">
+    <style type="text/css">
+      #ows-6 .ows:nth-child(2) {
+        text-align: left;
+        top: 200px;
+      }
+
+      #ows-6 .ows:nth-child(3) {
+        text-align: right;
+        top: 200px;
+        right: 0;
+      }
+    </style>
+   <div class="ows">
+      <p>Fullscreen</p>
+      <p>Screen Orientation API</p>
+      <p>Vibration API</p>
+      <p>Battery Status</p>
+      <p>Page Visibility</p>
+      <p>Wake Lock API</p>
+    </div>
+    <div class="ows">
+      <p>Geolocation API</p>
+      <p>Accelerometer Sensor</p>
+      <p>Gyroscope Sensor</p>
+      <p>Ambient Light Sensor</p>
+      <p>Proximity Sensor</p>
+      <p>Generic Sensor API</p>
+    </div>
+    <img src="img/ows2.png">
+  </div>
+  <div id="ows-7" class="step show-if-active show-if-past" data-x="7000" data-y="1300" data-z="500">
+    <style type="text/css">
+      #ows-7 > * {
+        transform: translateZ(-500px);
+      }
+
+      #ows-7 svg {
+        top: 400px;
+        left: 475px;
+      }
+      #ows-7 p {
+        top: 390px;
+        left: 300px;
+        font-size: 40px;
+      }
+    </style>
+    <svg class="ows" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="27px" height="194px" version="1.1">
+      <g transform="translate(0.5,0.5)">
+      <path d="M 13 32.44 L 13 160.56" fill="none" stroke="#000000" stroke-width="8" stroke-miterlimit="10" pointer-events="none"/>
+      <path d="M 13 21.94 L 20 35.94 L 13 32.44 L 6 35.94 Z" fill="#000000" stroke="#000000" stroke-width="8" stroke-miterlimit="10" pointer-events="none"/>
+      <path d="M 13 171.06 L 6 157.06 L 13 160.56 L 20 157.06 Z" fill="#000000" stroke="#000000" stroke-width="8" stroke-miterlimit="10" pointer-events="none"/>
+      </g>
+    </svg>
+    <p class="ows">WebRTC</p>
+  </div>
+  <div id="ows-8" class="step show-if-active show-faded-if-past" data-x="7500" data-y="1300" data-z="500">
+    <style type="text/css">
+      #ows-8 .ows {
+        left: 50%;
+        width: 100%;
+      }
+    </style>
+    <div class="ows">
+      <h2>What's next?</h2>
+      <p>Permissions API</p>
+      <p>Web Authentication API</p>
+      <p>Web Cryptography API</p>
+      <p>Payments API</p>
+    </div>
+  </div>
+  <div id="ows-9" class="step show-if-active show-faded-if-past" data-x="7500" data-y="1300" data-z="500">
+    <style type="text/css">
+      #ows-9 .ows {
+        left: 50%;
+        width: 100%;
+        top: 37%;
+      }
+    </style>
+    <div class="ows">
+      <h2>All that's left is...</h2>
+      <p>Contacts Manager API</p>
+      <p>Calendar API</p>
+    </div>
+  </div>
+  <div id="ows-10" class="step show-if-active show-faded-if-past" data-x="7500" data-y="1300" data-z="500">
+    <style type="text/css">
+      #ows-10 .ows {
+        left: 50%;
+        width: 100%;
+        bottom: 0;
+      }
+    </style>
+    <div class="ows">
+      <p><a href="https://www.w3.org/TR/" target="_blank">https://www.w3.org/TR/</a></p>
+      <p><a href="https://whatwg.org/" target="_blank">https://whatwg.org/</a></p>
+      <p><a href="https://developer.mozilla.org/docs/Web/API" target="_blank">https://developer.mozilla.org/docs/Web/API</a></p>
+      <p><a href="https://extensiblewebmanifesto.org/" target="_blank">https://extensiblewebmanifesto.org/</a></p>
+      <p><a href="http://caniuse.com/" target="_blank">http://caniuse.com/</a></p>
+    </div>
+  </div>
+
+  <div id="are-webs-so-slow" class="step" data-x="11000" data-y="0" data-z="0" data-rotate-y="180">
+    <h1>Are websites so slow?</h1>
+    <img src="img/slowmobile.png">
+  </div>
+  <div id="web-obesity-epidemic" class="step" data-x="11000" data-y="250" data-z="-500" data-rotate-y="180">
+    <h2 class="margintop450">Web obesity epidemic</h2>
+    <img src="img/obesity.png" width="60%">
+  </div>
+  <div id="application-shell-architecture" class="step" data-x="11000" data-y="1500" data-z="0" data-rotate-y="180">
+    <h2>Application shell architecture</h2>
+    <p>Minimal HTML, CSS, and JavaScript powering a user interface</p>
+    <img src="img/app-shell.png" width="80%">
+  </div>
+  <div id="web-components" class="step" data-x="11000" data-y="3000" data-z="500" data-rotate-y="180">
+    <style type="text/css">
+      #web-components > img {
+        margin-top: 10%;
+      }
+    </style>
+    <img src="img/web-components.png">
+  </div>
+  <div id="styling-optimization" class="step" data-x="11000" data-y="4500" data-z="1000" data-rotate-y="180">
+    <h2>Understand browser styling</h2>
+    <p>Understand layout, paint, and composite</p>
+    <p>Optimize the critical rendering path, scrolling, etc.</p>
+    <p>Use media queries and load resources asynchronously</p>
+    <p>Use <code>requestAnimationFrame</code> and <code>requestIdleCallback</code></p>
+    <img src="img/frame.png">
+  </div>
+  <div id="web-assembly" class="step" data-x="11000" data-y="5700" data-z="500" data-rotate-y="180">
+    <h2>What else?</h2>
+    <p>AMP - https://www.ampproject.org/</p>
+    <p>ASM.js - http://asmjs.org/</p>
+    <p>WebAssembly - https://webassembly.github.io/</p>
+    <p>SIMD.js</p>
+    </p>
+  </div>
+
+  <div id="are-webs-so-limited-by-connectivity" class="step" data-x="14000" data-y="0" data-z="0">
+    <h1>Are websites so limited by connectivity?</h1>
+  </div>
+  <div id="sw-1" class="step show-if-active" data-x="14000" data-y="1000" data-z="0">
+    <img src="img/sw/1.png" class="sw-img">
+  </div>
+  <div id="sw-2" class="step show-if-active" data-x="14000" data-y="1000" data-z="0">
+    <img src="img/sw/2.png" class="sw-img">
+  </div>
+  <div id="sw-3" class="step show-if-active" data-x="14000" data-y="1000" data-z="0">
+    <img src="img/sw/3.png" class="sw-img">
+  </div>
+  <div id="sw-4" class="step show-if-active" data-x="14000" data-y="1000" data-z="0">
+    <style type="text/css">
+      .sw-img {
+        margin-top: 50px;
+        width: 100%;
+      }
+    </style>
+    <img src="img/serviceworker.jpg" class="sw-img">
+  </div>
+  <div id="sw-5" class="step show-if-active" data-x="14000" data-y="1000" data-z="0">
+    <img src="img/sw/4.png" class="sw-img">
+  </div>
+  <div id="sw-6" class="step show-if-active overlay" data-x="14000" data-y="1000" data-z="0">
+    <h2>What is it?</h2>
+    <p>Javascript code run by the browser in the background</p>
+    <p>Tied to an origin and a path</p>
+    <p>Event-driven / Asynchronous / HTTPS only</p>
+  </div>
+  <div id="sw-7" class="step show-if-active overlay" data-x="14000" data-y="1000" data-z="0">
+    <h2>What can it do?</h2>
+    <p>Programmable network proxy (cache, request manipulation)</p>
+    <p>Background data synchronization</p>
+    <p>Hooks for background services</p>
+  </div>
+  <div id="sw-8" class="step show-if-active" data-x="14000" data-y="1000" data-z="0">
+    <img src="img/sw/5.png" class="sw-img">
+  </div>
+
+  <div id="is-it-an-app-already" class="step" data-x="16000" data-y="0" data-rotate-y="180">
+    <style type="text/css">
+      #is-it-an-app-already h1 {
+        position: initial;
+        transform: none;
+      }
+    </style>
+    <h1>Is it an app already?</h1>
+    <img src="img/installing.png">
+  </div>
+  <div id="app-manifest" class="step" data-x="16000" data-y="1000" data-rotate-y="180">
+    <style type="text/css">
+      #app-manifest pre {
+        margin: 0 300px;
+        text-align: left;
+        font-size: 20px;
+        transition: margin 1000ms;
+      }
+      #app-manifest.overlay-bd pre {
+        margin: 0 100px;
+      }  
+
+      .json-key {
+        color: brown;
+      }
+      .json-value {
+        color: navy;
+      }
+      .json-string {
+        color: olive;
+      }
+    </style>
+    <script type="text/javascript">
+    let jsonPrinter = {
+       replacer: function(match, pIndent, pKey, pVal, pEnd) {
+          var key = '<span class=json-key>';
+          var val = '<span class=json-value>';
+          var str = '<span class=json-string>';
+          var r = pIndent || '';
+          if (pKey)
+             r = r + key + pKey.replace(/[": ]/g, '') + '</span>: ';
+          if (pVal)
+             r = r + (pVal[0] == '"' ? str : val) + pVal + '</span>';
+          return r + (pEnd || '');
+        },
+       format: function(obj) {
+          var jsonLine = /^( *)("[\w]+": )?("[^"]*"|[\w.+-]*)?([,[{])?$/mg;
+          var content = JSON.stringify(obj, null, 3)
+             .replace(/&/g, '&amp;').replace(/\\"/g, '&quot;')
+             .replace(/</g, '&lt;').replace(/>/g, '&gt;')
+             .replace(jsonLine, jsonPrinter.replacer);
+            var pre = document.createElement('pre');
+            var code = document.createElement('code');
+            code.innerHTML = content;
+            pre.appendChild(code);
+            return pre;
+        }          
+       };
+      var manifest = {
+        "name": "My Progressive Web App",
+        "short_name": "My PWA",
+        "display": "standalone",
+        "orientation": "portrait",
+        "icons": [
+          {
+            "src": "img/icon-48.png",
+            "sizes": "48x48",
+            "type": "image/png"
+          },
+          {
+            "src": "img/icon-96.png",
+            "sizes": "96x96",
+            "type": "image/png"
+          },
+          {
+            "src": "img/icon-144.png",
+            "sizes": "144x144",
+            "type": "image/png"
+          }
+        ],
+        "start_url": "index.html?launcher=true",
+        "theme_color": "#a040a0",
+        "background_color": "#EEEEEE"
+      }
+    </script>
+
+    <h2>Web App Manifest</h2>
+    <p><code>&lt;link rel=&quot;manifest&quot; href=&quot;manifest.json&quot;&gt;</code></p>
+    <script type="text/javascript">
+      document.getElementById('app-manifest').appendChild(jsonPrinter.format(manifest));
+    </script>
+  </div>
+  <div id="app-manifest-resources" class="step show-if-active overlay" data-x="16000" data-y="1000" data-rotate-y="180">
+    <style type="text/css">
+      #app-manifest-resources div {
+        margin: 200px 650px 0;
+        font-size: 20px;
+      }
+    </style>
+    <div>
+      <p>Specification <a href="https://www.w3.org/TR/appmanifest" target="_blank">https://www.w3.org/TR/appmanifest</a></p>
+      <p>Generator <a href="https://brucelawson.github.io/manifest" target="_blank">https://brucelawson.github.io/manifest</a></p>
+      <p>Validator <a href="https://manifest-validator.appspot.com" target="_blank">https://manifest&#8209;validator.appspot.com</a></p>
+    </div>
+  </div>
+
+  <div id="checking-pwa" class="step" data-x="18000" data-y="0" data-rotate-y="0">
+    <h2>Checking my PWA</h2>
+    <img src="img/lighthouseresults.png" width="85%">
+    <a href="https://github.com/GoogleChrome/lighthouse" target="_blank">https://github.com/GoogleChrome/lighthouse</a>
+  </div>
+  <div id="installing-pwa" class="step" data-x="18000" data-y="2000" data-rotate-x="90">
+    <h2>Installing my PWA</h2>
+    <img src="img/pwa-install.png" width="100%">
+  </div>
+  <div id="pwa-support" class="step" data-x="18000" data-y="3000" data-rotate-y="0">
+    <h2>PWA Support</h2>
+    <img src="img/support.png"  width="100%">
+    <a href="https://jakearchibald.github.io/isserviceworkerready" target="_blank">https://jakearchibald.github.io/isserviceworkerready</a>
+  </div>
+
+  <div id="htmlvsnative-1-conclusion-1" class="step show-if-active" data-x="0" data-y="300" data-z="500">
+    <div class="margintop450 comparison">
+      <ul>
+        <li>Online / offline</li>
+        <li>Better performance</li>
+        <li>Full capabilities</li>
+        <li>Run from homescreen</li>
+        <li><br/></li>
+        <li>Expensive and complex to develop</li>
+        <li>Works in a single platform</li>
+        <li>Requires installation/can’t be shared</li>
+        <li>Potentially painful updates</li>
+      </ul>
+      <ul>
+        <li>Only online</li>
+        <li>Worse performance</li>
+        <li>Limited capabilities</li>
+        <li>Requires a browser</li>
+        <li><br/></li>
+        <li>Cheap and easy to develop</li>
+        <li><li>Works virtually everywhere</li>
+        <li>Accessed through a URL</li>
+        <li>Transparent updates</li>
+      </ul>
+    </div>
+  </div>
+  <div id="htmlvsnative-1-conclusion-2" class="step show-if-active overlay" data-x="0" data-y="300" data-z="500">
+    <div class="margintop450 comparison">
+      <ul class="hidden">
+        <li>Online / offline</li>
+        <li>Better performance</li>
+        <li>Full capabilities</li>
+        <li>Run from homescreen</li>
+        <li><br/></li>
+        <li>Expensive and complex to develop</li>
+        <li>Works in a single platform</li>
+        <li>Requires installation/can’t be shared</li>
+        <li>Potentially painful updates</li>
+      </ul>
+      <ul>
+        <li class="crossedout">Only online</li>
+        <li class="crossedout">Worse performance</li>
+        <li class="crossedout">Limited capabilities</li>
+        <li class="crossedout">Requires a browser</li>
+      </ul>
+    </div>
+  </div>
+
+  <div id="pwas-conclusion-1" class="step" data-x="3500" data-y="300" data-z="-500" data-rotate-y="180">
+  </div>
+  <div id="pwas-conclusion-2" class="step show-if-active" data-x="3500" data-y="300" data-z="-500" data-rotate-y="180">
+    <p class="margintop450">Using modern web capabilities to deliver an app-like user experience.</p>
+    <ul class="pwas-features">
+      <li>Instant load  ⇒ Splash screen + Shell App Arch. + Caching</li>
+    </ul>
+  </div>
+  <div id="pwas-conclusion-3" class="step show-if-active" data-x="3500" data-y="300" data-z="-500" data-rotate-y="180">
+    <p class="margintop450">Using modern web capabilities to deliver an app-like user experience.</p>
+    <ul class="pwas-features">
+      <li>Instant load ⇒ Splash screen + Shell App Arch. + Caching</li>
+      <li>App-like look & feel ⇒ Responsive design, requestAnimationFrame, ...</li>
+    </ul>
+  </div>
+  <div id="pwas-conclusion-4" class="step show-if-active" data-x="3500" data-y="300" data-z="-500" data-rotate-y="180">
+    <p class="margintop450">Using modern web capabilities to deliver an app-like user experience.</p>
+    <ul class="pwas-features">
+      <li>Instant load  ⇒ Splash screen + Shell App Arch. + Caching</li>
+      <li>App-like look & feel ⇒ Responsive design, requestAnimationFrame, ...</li>
+      <li>Same capabilities as native apps ⇒ Open Web Standards</li>
+    </ul>
+  </div>
+  <div id="pwas-conclusion-5" class="step show-if-active" data-x="3500" data-y="300" data-z="-500" data-rotate-y="180">
+    <p class="margintop450">Using modern web capabilities to deliver an app-like user experience.</p>
+    <ul class="pwas-features">
+      <li>Instant load  ⇒ Splash screen + Shell App Arch. + Caching</li>
+      <li>App-like look & feel ⇒ Responsive design, requestAnimationFrame, ...</li>
+      <li>Same capabilities as native apps ⇒ Open Web Standards</li>
+      <li>Connectivity independent ⇒ Service Worker</li>
+    </ul>
+  </div>
+  <div id="pwas-conclusion-6" class="step show-if-active" data-x="3500" data-y="300" data-z="-500" data-rotate-y="180">
+    <p class="margintop450">Using modern web capabilities to deliver an app-like user experience.</p>
+    <ul class="pwas-features">
+      <li>Instant load  ⇒ Splash screen + Shell App Arch. + Caching</li>
+      <li>App-like look & feel ⇒ Responsive design, requestAnimationFrame, ...</li>
+      <li>Same capabilities as native apps ⇒ Open Web Standards</li>
+      <li>Connectivity independent ⇒ Service Worker</li>
+      <li>Re-engageable ⇒ Service Worker + Push & Notification APIs</li>
+    </ul>
+  </div>
+  <div id="pwas-conclusion-7" class="step show-if-active" data-x="3500" data-y="300" data-z="-500" data-rotate-y="180">
+    <p class="margintop450">Using modern web capabilities to deliver an app-like user experience.</p>
+    <ul class="pwas-features">
+      <li>Instant load  ⇒ Splash screen + Shell App Arch. + Caching</li>
+      <li>App-like look & feel ⇒ Responsive design, requestAnimationFrame, ...</li>
+      <li>Same capabilities as native apps ⇒ Open Web Standards</li>
+      <li>Connectivity independent ⇒ Service Worker</li>
+      <li>Re-engageable ⇒ Service Worker + Push & Notification APIs</li>
+      <li>Installable ⇒ Web App Manifest + Service Worker</li>
+    </ul>
+  </div>
+  <div id="pwas-conclusion-8" class="step show-if-active" data-x="3500" data-y="300" data-z="-500" data-rotate-y="180">
+    <p class="margintop450">Using modern web capabilities to deliver an app-like user experience.</p>
+    <ul class="pwas-features">
+      <li>Instant load  ⇒ Splash screen + Shell App Arch. + Caching</li>
+      <li>App-like look & feel ⇒ Responsive design, requestAnimationFrame, ...</li>
+      <li>Same capabilities as native apps ⇒ Open Web Standards</li>
+      <li>Connectivity independent ⇒ Service Worker</li>
+      <li>Re-engageable ⇒ Service Worker + Push & Notification APIs</li>
+      <li>Installable ⇒ Web App Manifest + Service Worker</li>
+      <li>Discoverable, Linkable (take that native app!)</li>
+    </ul>
+  </div>
+  <div id="pwas-conclusion-9" class="step show-if-active" data-x="3500" data-y="300" data-z="-500" data-rotate-y="180">
+    <style type="text/css">
+      .conclusion {
+        font-size: 60px;
+        font-weight: 900;
+        position: absolute;
+        color: red;
+        background: white;
+        border: 5px solid;
+        padding: 1rem;
+        top: 450px;
+      }
+    </style>
+    <h2 class="conclusion">More parity Native vs Web.<br/>Better and more engaging Web Experience.</h2>
+  </div>
+
+  <div id="thank-you" class="step show-if-active" data-x="3500" data-y="500" data-z="-500" data-rotate-y="180">
+    <style type="text/css">
+      #thank-you .logo {
+        width: 100px;
+        transform: translateY(20px);
+      }
+
+      #thank-you div {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+      }
+    </style>
+    <img src="img/thatsall.png">
+    <div>
+      <p>Talk sponsored by <img src="img/intopalo-header-logo.png" class="logo">.</p>
+      <p>(We’re hiring web devs)</p>
+    </div>
+</div>
+
+<script type="text/javascript" src="js/impress.js"></script>
+<script type="text/javascript" src="js/impress.extensions.js"></script>
+<script>impress().init();</script>
+
+</body>
+</html>
